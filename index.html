@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enchanting To‑Do</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <header class="app__header">
+        <h1 class="app__title">Enchanting To‑Do</h1>
+        <div class="app__actions">
+          <button class="button button--ghost" id="btn-clear-completed" title="Clear completed">Clear Completed</button>
+          <button class="button" id="btn-bulk-complete" title="Mark selected as complete">Complete Selected</button>
+        </div>
+      </header>
+
+      <section class="creator">
+        <form id="create-form" class="creator__form" autocomplete="off">
+          <input class="input" id="input-title" placeholder="Add a task..." required />
+          <input class="input" id="input-tags" placeholder="tags (comma separated)" />
+          <input class="input" id="input-date" type="date" />
+          <select class="input" id="input-priority" title="Priority">
+            <option value="normal">Priority: Normal</option>
+            <option value="high">Priority: High</option>
+            <option value="low">Priority: Low</option>
+          </select>
+          <button class="button" type="submit">Add</button>
+        </form>
+      </section>
+
+      <section class="filters">
+        <div class="filters__row">
+          <input class="input input--search" id="input-search" placeholder="Search by title or tag" />
+          <select class="input" id="filter-status">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+          </select>
+          <select class="input" id="filter-priority">
+            <option value="all">Any priority</option>
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="list" id="list" aria-live="polite"></section>
+
+      <footer class="app__footer">
+        <span id="counter"></span>
+      </footer>
+    </div>
+
+    <template id="item-template">
+      <article class="todo" draggable="true">
+        <label class="todo__checkbox">
+          <input type="checkbox" class="todo__toggle" />
+          <span class="todo__check"></span>
+        </label>
+        <div class="todo__content">
+          <input class="todo__title" />
+          <div class="todo__meta">
+            <span class="todo__tags"></span>
+            <span class="todo__due"></span>
+          </div>
+        </div>
+        <div class="todo__badges">
+          <span class="badge" data-priority></span>
+        </div>
+        <div class="todo__actions">
+          <input type="checkbox" class="todo__select" title="Select for bulk" />
+          <button class="icon-button todo__delete" title="Delete" aria-label="Delete">✕</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+  </html>
+
+
