@@ -1,6 +1,6 @@
 services:
-  - type: static
+  - type: web
     name: enchanting-todo
+    env: static
     buildCommand: ""
-    publishPath: "."
-
+    staticPublishPath: "."
