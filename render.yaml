@@ -1,10 +1,6 @@
 services:
-  - type: static_site
+  - type: static
     name: enchanting-todo
-    env: static
     buildCommand: ""
     publishPath: "."
-    routes:
-      - type: rewrite
-        source: "/**"
-        destination: "/index.html"
+
